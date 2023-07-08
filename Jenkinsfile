@@ -11,22 +11,23 @@ pipeline {
             steps {
                 script {
                     dir('terraform') {
-                        sh "terraform init"
-                        sh "terraform apply -auto-approve"
+                        // sh "terraform init"
+                        // sh "terraform apply -auto-approve"
+                        sh "terraform destroy -auto-approve"
                     }
                 }
             }
         }
-        stage("Deploy to EKS") {
-            steps {
-                script {
-                    dir('kubernetes') {
-                        sh "aws eks update-kubeconfig --name my-eks-cluster"
-                        sh "kubectl apply -f dep.yaml"
+        // stage("Deploy to EKS") {
+        //     steps {
+        //         script {
+        //             dir('kubernetes') {
+        //                 sh "aws eks update-kubeconfig --name my-eks-cluster"
+        //                 sh "kubectl apply -f dep.yaml"
                         
-                    }
-                }
-            }
-        }
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
