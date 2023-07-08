@@ -64,11 +64,11 @@ resource "aws_iam_role_policy_attachment" "eks_role_policy_attachment" {
   role       = aws_iam_role.eks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
-resource "aws_iam_role_policy_attachment" "eks_role_policy_attachment" {
+resource "aws_iam_role_policy_attachment" "eks_role_servicepolicy_attachment" {
   role       = aws_iam_role.eks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
 }
-resource "aws_iam_role_policy_attachment" "eks_role_policy_attachment" {
+resource "aws_iam_role_policy_attachment" "eks_role_vpcpolicy_attachment" {
   role       = aws_iam_role.eks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
 }
@@ -77,14 +77,11 @@ resource "aws_iam_role_policy_attachment" "eksnode_role_policy_attachment1" {
   role       = aws_iam_role.eks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
-resource "aws_iam_role_policy_attachment" "eksnode_role_policy_attachment1" {
+resource "aws_iam_role_policy_attachment" "eksnode_role_cni_attachment1" {
   role       = aws_iam_role.eks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
-resource "aws_iam_role_policy_attachment" "eksnode_role_policy_attachment1" {
-  role       = aws_iam_role.eks_node_group_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-}
+
 
 resource "aws_iam_role_policy_attachment" "eksnode_role_policy_attachment2" {
   role       = aws_iam_role.eks_node_group_role.name
