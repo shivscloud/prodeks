@@ -10,6 +10,7 @@ resource "aws_subnet" "private_subnet" {
   vpc_id      = aws_vpc.my_vpc.id
   cidr_block  = each.value
   availability_zone = each.key
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "private-subnet-${each.key}"
