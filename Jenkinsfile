@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     dir('kubernetes') {
-                        sh "aws eks update-kubeconfig --name my-eks-node-group"
+                        sh "aws eks update-kubeconfig --name my-eks-cluster"
                         sh "kubectl apply -f dep.yaml"
                         
                     }
